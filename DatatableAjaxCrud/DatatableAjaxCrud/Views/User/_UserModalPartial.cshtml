@@ -1,0 +1,50 @@
+﻿@model UserViewModel
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="userForm" onsubmit="return false">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="userModalHeaderLabel">Kullanıcı Ekle</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input asp-for="@Model.Id" id="ID" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.FirstName" class="control-label"></label>
+                        <input asp-for="@Model.FirstName" id="FirstName" class="form-control"/>
+                        <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.LastName" class="control-label"></label>
+                        <input asp-for="@Model.LastName" id="LastName" class="form-control"/>
+                        <span asp-validation-for="@Model.LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Contact" class="control-label"></label>
+                        <input asp-for="@Model.Contact" id="Contact" class="form-control"/>
+                        <span asp-validation-for="@Model.Contact" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Email" class="control-label"></label>
+                        <input asp-for="@Model.Email" id="Email" class="form-control"/>
+                        <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Address" class="control-label"></label>
+                        <input asp-for="@Model.Address" id="Address" class="form-control"/>
+                        <span asp-validation-for="@Model.Address" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <label class="text-danger mr-5" id="userModalDeleteLabel" style="display:none;">Gerçekten Silmek istiyormusunuz Kaydı?</label>
+                    <button type="submit" class="btn btn-primary" id="btnAdd" onclick="Add();">Ekle</button>
+                    <button type="submit" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="Update();">Güncelle</button>
+                    <button type="submit" class="btn btn-danger" id="btnDelete" style="display:none;" onclick="Delete();">Sil</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

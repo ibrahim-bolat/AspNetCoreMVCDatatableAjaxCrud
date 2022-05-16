@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "User Page";
+}
+
+@section DatatableStyle {
+    <link href="~/lib/datatables/css/datatables.min.css" rel="stylesheet"/>
+    <style>
+    .btn-export-excel {
+        background-color:#198754 !important;
+        color:white !important;
+    }
+        .btn-export-pdf {
+        background-color:#dc3545 !important;
+        color:white !important;
+    }
+        .btn-export-print {
+        background-color:#ffc107 !important;
+        color:white !important;
+    }
+      .buttons-page-length, .dt-button-collection {
+        background-color:#17a2b8 !important;
+        color:white !important;
+    }
+  
+    .dt-buttons button {
+     margin-right: 5px !important;
+    }
+    
+    div.dt-button-collection {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    }
+    
+    a.dt-button.dropdown-item.button-page-length.active {
+    background-color:white !important;
+    color:black !important;
+    }
+    
+    .dt-header , .dt-footer {
+      display: flex !important;
+      justify-content: space-between !important;
+      flex-wrap: wrap !important;
+    }
+    
+    @@media only screen and (max-width: 992px) {
+           .dt-header , .dt-footer{
+                justify-content: center !important;
+          }
+     }  
+            
+  	.dt-header div , .dt-footer div {
+  	margin-bottom: 2px !important;
+  	}
+
+    </style>
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Kullanıcılar</h2>
+        </div>
+        <div class="card-body">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userModal">
+                <i class="fa fa-plus">Kullanıcı Ekle</i>
+            </button><br/><br/>
+            <table id="userTable" class="table table-striped table-bordered table-hover dt-responsive nowrap" style="width:100%">
+                <thead>
+                <tr class="btn-primary">
+                    <th>ID</th>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>İletişim</th>
+                    <th>Email</th>
+                    <th>Adres</th>
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="userModalPartial">
+    <partial name="_UserModalPartial"/>
+</div>
+@section Scripts
+{
+    <script src="~/lib/datatables/js/datatables.min.js"></script>
+    <script src="~/js/UserTable.js"></script>
+}
